@@ -1,8 +1,13 @@
 import React from 'react';
 import { useSimulation } from '../contexts/SimulationContext';
 
-const EventSection: React.FC = () => {
-  const { currentEvent, triggerRandomEvent, resetMarket } = useSimulation();
+interface EventSectionProps {
+  onTriggerRandomEvent: () => void;
+  onResetMarket: () => void;
+}
+
+const EventSection: React.FC<EventSectionProps> = ({ onTriggerRandomEvent, onResetMarket }) => {
+  const { currentEvent } = useSimulation();
 
   return (
     <div className="border-t border-gray-200 pt-6">
@@ -10,14 +15,14 @@ const EventSection: React.FC = () => {
       
       <div className="flex flex-col sm:flex-row gap-4 mb-4">
         <button
-          onClick={triggerRandomEvent}
+          onClick={onTriggerRandomEvent}
           className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
         >
           Trigger Random Event
         </button>
         
         <button
-          onClick={resetMarket}
+          onClick={onResetMarket}
           className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
         >
           Reset Market

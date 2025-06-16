@@ -1,4 +1,3 @@
-import React from 'react';
 import { SimulationProvider } from './contexts/SimulationContext';
 import Simulator from './components/Simulator';
 

@@ -169,6 +169,8 @@ const MarketGraph: React.FC<MarketGraphProps> = ({ onClose, showMaximization }) 
     elements: { point: { radius: 0 } }
   };
 
+  if (!showMaximization || !isMaximized) return null;
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 max-w-3xl w-full mx-4">
@@ -181,15 +183,16 @@ const MarketGraph: React.FC<MarketGraphProps> = ({ onClose, showMaximization }) 
             ✕
           </button>
         </div>
-
+        
         {showMaximization && (
           <div className={`mb-4 p-3 rounded-md ${isMaximized ? 'bg-green-100' : 'bg-yellow-100'}`}>
             <p className={isMaximized ? 'text-green-700' : 'text-yellow-700'}>
               {isMaximized 
                 ? '🎯 Congratulations! Your price maximizes profit!'
-                : `📈 Maximum profit can be achieved at $${maxPrice.toFixed(2)}`
+                : `📈 Maximum profit can be achieved somewhere else!`
               }
             </p>
+            
             <p className="text-sm mt-1 text-gray-600">
               The profit-maximizing price occurs where Marginal Revenue equals Marginal Cost
             </p>
@@ -198,23 +201,29 @@ const MarketGraph: React.FC<MarketGraphProps> = ({ onClose, showMaximization }) 
 
         <div style={{ position: 'relative', width: 700, height: 400, margin: '0 auto' }}>
           {/* Y-axis label (Price) */}
-          <div style={{ position: 'absolute', left: 0, top: 108, width: 75, textAlign: 'right', 
-            fontWeight: 'bold', color: '#222', fontSize: 12 }}>
+          <div style={{ position: 'absolute', left: 24, top: 82, width: 75, textAlign: 'left', 
+            fontWeight: 'bold', color: '#222', fontSize: 11 }}>
             Profit-Max Price: ${price}
           </div>
           {/* X-axis label (Estimated Demand) */}
-          <div style={{ position: 'absolute', left: 160, top: 330, width: 200, textAlign: 'center',
-             fontWeight: 'bold', color: '#222', fontSize: 12 }}>
+          <div style={{ position: 'absolute', left: 210, top: 0, width: 200, textAlign: 'center',
+             fontWeight: 'bold', color: '#222', fontSize: 11 }}>
             Estimated Demand: {demand} units
           </div>
           <div
             style={{
-              width: 700,
+              width: 720,
               height: 400,
               background: 'white',
               borderRadius: 8,
               boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
-              padding: 20
+              alignContent: 'center',
+              justifyContent: 'center',
+              display: 'flex',
+              alignItems: 'center',
+              justifyItems: 'center',
+              alignSelf: 'center',
+              justifySelf: 'center',
             }}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
