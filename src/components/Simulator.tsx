@@ -4,7 +4,7 @@ import MetricsDisplay from './MetricsDisplay';
 import EventSection from './EventSection';
 import MarketGraph from './MarketGraph';
 import { useSimulation } from '../contexts/SimulationContext';
-import { Target, BarChart } from 'lucide-react';
+import { Target, BarChart, Github, Globe } from 'lucide-react';
 
 const Simulator: React.FC = () => {
   const { marketCondition, checkProfitMaximization, triggerRandomEvent, resetMarket } = useSimulation();
@@ -113,7 +113,7 @@ const Simulator: React.FC = () => {
       )}
       
       <footer className="text-center text-sm text-gray-500 mt-8">
-        <p>
+        <p className="flex items-center justify-center gap-2">
           Price it Right Simulator — Learn how pricing affects demand and profit |
           <span className="money" style={{ marginLeft: 4 }}>
             <a
@@ -128,9 +128,27 @@ const Simulator: React.FC = () => {
               }}
               className="money-link"
             >
-                    cleo
+              cleo
             </a>
           </span>
+          <span className="text-gray-400">|</span>
+          <a
+            href="https://github.com/CleeYOpro/demandprice_pro.git"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-gray-700 transition-colors"
+          >
+            <Github className="w-4 h-4" />
+          </a>
+          <span className="text-gray-400">|</span>
+          <a
+            href="https://saylordotorg.github.io/text_microeconomics-theory-through-applications/s21-15-pricing-with-market-power.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-gray-700 transition-colors"
+          >
+            <Globe className="w-4 h-4" />
+          </a>
         </p>
         <style>{`
           .money-link:hover {
