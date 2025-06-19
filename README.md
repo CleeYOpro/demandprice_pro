@@ -3,6 +3,7 @@
 An interactive **pricing + demand simulator** built with React Typescript + Vite.  
 Users adjust the price of a product to visualize demand, revenue, and profit in real-time — complete with **market twist events** like a crash, new competition, or viral trend.
 
+![Preview of app](./Screenshot 2025-06-18 202111.png)
 🔗 Live Demo: [https://priceprofit.cleof.us](https://priceprofit.pages.dev)
 
 ---
